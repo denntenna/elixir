@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Making Command Line Apps</title>
+    <meta name="description" content="description"/>
+    <meta name="author" content="denntenna" />
+    <meta name="keywords" content="elixir" />
+
+    <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@dennymades">
+<meta name="twitter:creator" content="@">
+<meta name="twitter:title" content="Making Command Line Apps">
+<meta name="twitter:description" content="NEWARK - The guest list and parade of limousines with celebrities emerging from them seemed more suited to a red carpet event in Hollywood or New York than than a gritty stretch of Sussex Avenue near the former site of the James M. Baxter Terrace public housing project here.">
+<meta name="twitter:image" content="http://graphics8.nytimes.com/images/2012/02/19/us/19whitney-span/19whitney-span-articleLarge.jpg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/prism.css"/>
+    <link rel="stylesheet" href="/style.css"/>
+    <script src="/prism.js"></script> 
+</head>
+  <body>
+   <header></header>
+   <main>
+    <h1>Making Command Line Apps</h1>
+<p>Liveview is just an elixir process, so it should be possible to inspect it and interact with it by sending messages
+https://arathunku.com/b/2021/debug-few-things-we-can-do-with-liveview-pid/
+this should be useful for debugging live systems as well<br>
+<a href="https://twitter.com/chris_mccord/status/1772631568772710507">see server logs in console too!</a></p>
+<h2>Example Module</h2>
+<pre><code class="language-elixir">defmodule DAU.MediaMatch.HashMeta do
+  alias DAU.Repo
+  use Ecto.Schema
+  import Ecto.Changeset
+
+  schema &quot;hash_meta&quot; do
+    field :count, :integer, default: 0
+    field :label, :string
+    field :description, :string
+    field :value, :string
+    field :user_language, Ecto.Enum, values: [:en, :hi, :ta, :te, :und]
+
+    timestamps(type: :utc_datetime)
+  end
+
+  def changeset(hash_meta, attrs) do
+    hash_meta
+    |&gt; cast(attrs, [:count, :label, :description, :value, :user_language])
+    |&gt; validate_required([:value, :user_language])
+  end
+end
+
+</code></pre>
+<h1>Making CLI Tools</h1>
+<p><a href="https://www.youtube.com/watch?v=MLPWjH0RzWE">source video</a></p>
+<p>IO.gets and IO.puts</p>
+<pre><code class="language-elixir">IO.puts(&quot;info)
+IO.puts(:stderr, &quot;error message&quot;)
+</code></pre>
+<p>IO.ANSI to get colors</p>
+<pre><code class="language-elixir">[:normal, message] 
+|&gt; IO.ANSI.format() 
+|&gt; IO.puts()
+
+[:faint, message] |&gt; IO.ANSI.format() |&gt; IO.puts()
+[:green, message] |&gt; IO.ANSI.format() |&gt; IO.puts()
+[:yellow, message] |&gt; IO.ANSI.format() |&gt; IO.puts
+</code></pre>
+<p>OptionParser.parse/2</p>
+<pre><code class="language-elixir">iex&gt; OptionParser.parse([&quot;--help --unsupported some_args&quot;], strict: [help: :boolean])
+{[helo: true], [&quot;some_args], [{&quot;unsupported&quot;, nil}]}
+</code></pre>
+<p>Exit Codes</p>
+<pre><code>0 - success
+1 catchall for general errors
+
+System.stop(0)
+System.halt(1)
+</code></pre>
+<h1>Long Text</h1>
+<p>The majority of machine learning investment on online platforms still happens in English. As Tarunima Prabhakar commented to Rest of World back in 2021, there is hardly any prioritisation of other languages. For a country like India, abusive and hateful slurs also happen in vernacular languages. Yet, the lack of a list of these commonly used terms makes it harder to protect people from gendered abuse.</p>
+<p>As part of the process of building Uli, Tattle developed one of the largest crowd-sourced slur lists in Indian languages. Indian English was deemed by the team as a distinct enough vocabulary to warrant investment. Tamil and Hindi were the other two languages chosen for the initial phase given team capacity and budgets at the time.
+A second round of crowdsourced words during Tattle’s 16 days of activism campaign in November 2023 allowed us to add Malayalam to the list of languages that Uli supports. Thanks to the work led by Aakash from Citizen Digital Foundation, 50 new slurs were added in Malayalam. It has been an immense collective effort that now contains over 630 words across the four languages, over 300 of which have been annotated. One of the annotators involved in the process also pointed out that given the number of alphabets that exist in other languages (as opposed to English), creating the lexicon for slur lists is even harder. As people learn to trick the system, the number of spelling and tweaking possibilities means consistently trying to keep up. The slur list is available on Tattle’s GitHub under the Open Data License for use by interested researchers and activists, or Trust and Safety teams.</p>
+
+   </main>
+  </body>
+</html>
