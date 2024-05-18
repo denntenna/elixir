@@ -16,6 +16,15 @@ p {
 
 a {
     font-size: 0.6em;
+    font-family: "Fira Code";
+    color: #A855F7
+}
+
+a:link,
+a:visited,
+a:focus,
+a:hover {
+    color: #0C4A6E;
 }
 
 h1,
@@ -25,4 +34,56 @@ h4,
 h5,
 h6 {
     font-family: "DM Serif Display", serif;
+}
+
+
+
+.blog-layout {
+    p {
+        max-width: 640px;
+        margin: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        max-width: 640px;
+        margin: auto;
+        margin-top: 1.2em;
+        margin-bottom: 0.8em;
+    }
+
+    h1 {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    pre {
+
+        max-width: 768px;
+        margin: auto;
+        margin-top: 0.8em;
+        margin-bottom: 0.8em;
+    }
+}
+
+.index-layout {
+    max-width: 768px;
+    margin: auto;
+
+    a {
+        font-family: "Zilla Slab", monospace;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1.2em;
+        line-height: 1.2em;
+    }
 }

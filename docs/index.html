@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <base href="/elixir/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title></title>
@@ -41,21 +42,71 @@
   <script src="/prism.js"></script>
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js"
+    integrity="sha512-dUlSLLkxslGILhPdCkALwk4szPhp3xmZIKFtlUD+O9Lslq41Aksmdt5OGqpomDoT4FsCUH70jQU8ezZHI3v1RQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
   <header>
-    <div class="bg-slate-800 text-white p-4">read elixir code with me</div>
+    <div class="bg-slate-800 p-4 flex flex-row gap-4 align-baseline">
+      <a class="text-white text-sm" href="/">
+
+        <p class="text-white text-md">read elixir with me</p>
+      </a>
+
+    </div>
   </header>
-  <main class="max-w-screen-md px-8 py-4 mx-auto">
-    
-<h1>Posts</h1>
+  <main class="max-w-screen-lg px-8 py-4 mx-auto blog-layout">
+
+    <div class="index-layout">
 
 
-<a href="/posts/cli/">Making Command Line Apps</a>
+      <h1>Posts</h1>
 
-<a href="/posts/exceptions/"></a>
 
+
+      <a href="/posts/exceptions/">
+
+        <div class="index-layout p-4 flex flex-col gap-2 mt-4 ">
+          <div class="flex flex-row align-start gap-2 flex-wrap">
+            <span>Exceptions</span>
+            <span class="text-slate-400">Tue May 14 2024 05:30:00 GMT+0530 (India Standard Time)</span>
+            <span>
+
+              <span class="px-2 rounded-md bg-slate-200 text-xs">post</span>
+
+              <span class="px-2 rounded-md bg-slate-200 text-xs">cheatsheet</span>
+
+            </span>
+
+          </div>
+        </div>
+      </a>
+
+
+      <a href="/posts/cli/">
+
+        <div class="index-layout p-4 flex flex-col gap-2 mt-4 ">
+          <div class="flex flex-row align-start gap-2 flex-wrap">
+            <span>Making Command Line Apps</span>
+            <span class="text-slate-400">Sat May 18 2024 05:30:00 GMT+0530 (India Standard Time)</span>
+            <span>
+
+              <span class="px-2 rounded-md bg-slate-200 text-xs">post</span>
+
+              <span class="px-2 rounded-md bg-slate-200 text-xs">cheatsheet</span>
+
+              <span class="px-2 rounded-md bg-slate-200 text-xs">elixir</span>
+
+            </span>
+
+          </div>
+        </div>
+      </a>
+
+
+    </div>
   </main>
 </body>
 

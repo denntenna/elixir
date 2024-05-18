@@ -41,18 +41,29 @@
   <script src="/prism.js"></script>
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js"
+    integrity="sha512-dUlSLLkxslGILhPdCkALwk4szPhp3xmZIKFtlUD+O9Lslq41Aksmdt5OGqpomDoT4FsCUH70jQU8ezZHI3v1RQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
   <header>
-    <div class="bg-slate-800 text-white p-4">read elixir code with me</div>
+    <div class="bg-slate-800 p-4 flex flex-row gap-4 align-baseline">
+      <a class="text-white text-sm" href="/">
+
+        <p class="text-white text-md">read elixir with me</p>
+      </a>
+
+    </div>
   </header>
-  <main class="max-w-screen-md px-8 py-4 mx-auto">
+  <main class="max-w-screen-lg px-8 py-4 mx-auto blog-layout">
     <h1>Making Command Line Apps</h1>
 <p>Liveview is just an elixir process, so it should be possible to inspect it and interact with it by sending messages
 https://arathunku.com/b/2021/debug-few-things-we-can-do-with-liveview-pid/
-this should be useful for debugging live systems as well<br>
-<a href="https://twitter.com/chris_mccord/status/1772631568772710507">see server logs in console too!</a></p>
+this should be useful for debugging live systems as well</p>
+<p>see server logs <a href="https://www.google.com">|||&gt;</a></p>
+<p><a href="https://twitter.com/chris_mccord/status/1772631568772710507"> &lt;--see server logs in console too! --&gt;</a></p>
+<p><a href="https://www.google.com">www.google.com</a></p>
 <h2>Example Module</h2>
 <pre><code class="language-elixir">defmodule DAU.MediaMatch.HashMeta do
   alias DAU.Repo

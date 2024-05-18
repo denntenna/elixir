@@ -41,13 +41,22 @@
   <script src="/prism.js"></script>
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js"
+    integrity="sha512-dUlSLLkxslGILhPdCkALwk4szPhp3xmZIKFtlUD+O9Lslq41Aksmdt5OGqpomDoT4FsCUH70jQU8ezZHI3v1RQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
   <header>
-    <div class="bg-slate-800 text-white p-4">read elixir code with me</div>
+    <div class="bg-slate-800 p-4 flex flex-row gap-4 align-baseline">
+      <a class="text-white text-sm" href="/">
+
+        <p class="text-white text-md">read elixir with me</p>
+      </a>
+
+    </div>
   </header>
-  <main class="max-w-screen-md px-8 py-4 mx-auto">
+  <main class="max-w-screen-lg px-8 py-4 mx-auto blog-layout">
     {{content}}
   </main>
 </body>
