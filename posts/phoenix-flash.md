@@ -1,0 +1,73 @@
+---
+title: Phoenix Flash
+date: 2024-05-19
+tags:
+    - phoenix
+---
+# {{title}}
+
+Context : I came across this [tweet↩](https://x.com/src_rip/status/1791798294617755836) that built a stack of toasts.
+Two things caught my attention : 
+1. how feature complete it was
+2. It promised to be compatible with phoenix flash  
+
+
+It got me thinking that I have used flash groups in the past but never really thought about how they are implemented. What would it take to hook into them to provide custom toasts.  
+
+
+With this, first i jumped into the phoenix codebase to understand how they work.
+
+I figured a good starting point would be the put_flash function. This is how its explained in the documentation -
+> Persists a value in flash.
+
+As a new comer to the elixir eco system, I find documentation like this typical of many phoenix and phoenix-adjacent projects like ecto where they assume some domain familiarity. Even after having done web development primarily in the JS eco system, I don't know what flash is here. By now I am also sure it will just be a data structure like conn (in Plug) So I think its best to look at at code.
+
+```elixir
+def put_flash(conn, key, message) do
+    flash =
+      Map.get(conn.assigns, :flash) ||
+        raise ArgumentError, message: "flash not fetched, call fetch_flash/2"
+
+    persist_flash(conn, Map.put(flash, flash_key(key), message))
+end
+```
+So as it turns out flash is just an assign in the `conn` struct
+
+
+Lets look at some code that uses flash.
+
+
+```elixir
+Phoenix.Flash.get(@flash, @kind)
+# from core_components. @kind is either `:info` or `:error`
+```
+
+
+
+```elixir
+phx-click={JS.push("lv:clear-flash", value: %{key: @kind}) 
+|> hide("##{@id}")}
+# from core_components. Seems to be a way for the client to clear the "flash" 
+```
+
+
+The doubts I have at this point are. I noticed persistence in project_a. How is that done?
+is flash an array of notices maintained by the server in its memory or is it one item that the server sends to the client and its the clien't responsibility to save it as a stack to display to the user.
+
+I suppose it might be easier to just call `put_flash` from the server twice and log it on the client side to see. 
+
+
+todo : 
+1. Lets peruse the code base of project_a to see how they have done it.
+2. client side components for showing the flash component.
+3. Well you know what would be interesting, its if the flash wasn't visual but aural. What if it played a sound based on server events.
+
+I was tempted to push it to hexdocs but that felt like a polluting the space, so its available only on github. To use it import in your mix.exs like this.
+
+```elixir
+defp deps do
+    [
+        "flash_audio" ~> "0.1.0"
+    ]
+end
+```
