@@ -11,7 +11,7 @@ Liveview is just an elixir process, so it should be possible to inspect it and i
 https://arathunku.com/b/2021/debug-few-things-we-can-do-with-liveview-pid/
 this should be useful for debugging live systems as well  
 
-see server logs [|||>](https://www.google.com)
+see server logs [|>](https://www.google.com)
 
 
 [ <--see server logs in console too! -->](https://twitter.com/chris_mccord/status/1772631568772710507)
