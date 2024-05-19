@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Making Command Line Apps</title>
+  <title>Exceptions</title>
   <meta name="description" content="description" />
   <meta name="author" content="denntenna" />
   <meta name="keywords" content="elixir" />
@@ -12,7 +12,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@dennymades">
   <meta name="twitter:creator" content="@">
-  <meta name="twitter:title" content="Making Command Line Apps">
+  <meta name="twitter:title" content="Exceptions">
   <meta name="twitter:description"
     content="NEWARK - The guest list and parade of limousines with celebrities emerging from them seemed more suited to a red carpet event in Hollywood or New York than than a gritty stretch of Sussex Avenue near the former site of the James M. Baxter Terrace public housing project here.">
   <meta name="twitter:image"
@@ -61,66 +61,13 @@
     </div>
   </header>
   <main class="max-w-screen-lg px-8 py-4 mx-auto blog-layout">
-    <h1>Making Command Line Apps</h1>
+    <h1>Exceptions</h1>
+<h2>Debugging LiveView</h2>
 <p>Liveview is just an elixir process, so it should be possible to inspect it and interact with it by sending messages
 https://arathunku.com/b/2021/debug-few-things-we-can-do-with-liveview-pid/
 this should be useful for debugging live systems as well</p>
-<p>see server logs <a href="https://www.google.com">|&gt;</a></p>
-<p><a href="https://twitter.com/chris_mccord/status/1772631568772710507"> &lt;--see server logs in console too! --&gt;</a></p>
-<p><a href="https://www.google.com">www.google.com</a></p>
-<h2>Example Module</h2>
-<pre><code class="language-elixir">defmodule DAU.MediaMatch.HashMeta do
-  alias DAU.Repo
-  use Ecto.Schema
-  import Ecto.Changeset
-
-  schema &quot;hash_meta&quot; do
-    field :count, :integer, default: 0
-    field :label, :string
-    field :description, :string
-    field :value, :string
-    field :user_language, Ecto.Enum, values: [:en, :hi, :ta, :te, :und]
-
-    timestamps(type: :utc_datetime)
-  end
-
-  def changeset(hash_meta, attrs) do
-    hash_meta
-    |&gt; cast(attrs, [:count, :label, :description, :value, :user_language])
-    |&gt; validate_required([:value, :user_language])
-  end
-end
-
-</code></pre>
-<h1>Making CLI Tools</h1>
-<p><a href="https://www.youtube.com/watch?v=MLPWjH0RzWE">source video</a></p>
-<p>IO.gets and IO.puts</p>
-<pre><code class="language-elixir">IO.puts(&quot;info)
-IO.puts(:stderr, &quot;error message&quot;)
-</code></pre>
-<p>IO.ANSI to get colors</p>
-<pre><code class="language-elixir">[:normal, message] 
-|&gt; IO.ANSI.format() 
-|&gt; IO.puts()
-
-[:faint, message] |&gt; IO.ANSI.format() |&gt; IO.puts()
-[:green, message] |&gt; IO.ANSI.format() |&gt; IO.puts()
-[:yellow, message] |&gt; IO.ANSI.format() |&gt; IO.puts
-</code></pre>
-<p>OptionParser.parse/2</p>
-<pre><code class="language-elixir">iex&gt; OptionParser.parse([&quot;--help --unsupported some_args&quot;], strict: [help: :boolean])
-{[helo: true], [&quot;some_args], [{&quot;unsupported&quot;, nil}]}
-</code></pre>
-<p>Exit Codes</p>
-<pre><code>0 - success
-1 catchall for general errors
-
-System.stop(0)
-System.halt(1)
-</code></pre>
-<h1>Long Text</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis placerat velit sed erat dignissim, id accumsan ex faucibus. Quisque velit nisl, elementum nec eleifend sed, rutrum in diam. Etiam malesuada, nunc non auctor gravida, ex neque laoreet arcu, dapibus facilisis turpis purus non turpis. Duis id ex ut sem consectetur dictum. Ut quis laoreet dui. Sed ac vulputate leo, a congue justo. Nam quis ultricies erat, et imperdiet tellus. Nunc porttitor, velit ut molestie auctor, mi nunc pharetra erat, eget malesuada massa enim vitae diam. Fusce ut lacinia turpis.</p>
-<p>Quisque venenatis scelerisque lacus, et accumsan lorem sodales ultrices. Cras vestibulum egestas consectetur. Nam consequat hendrerit est eget ornare. Pellentesque tempor ante nec est fringilla mattis. Donec ultricies lectus egestas volutpat ornare. Phasellus vestibulum dictum dictum. Cras suscipit nibh at velit porttitor sodales. Quisque hendrerit ultrices tortor sed tincidunt. Pellentesque non nisi dapibus, pellentesque urna ut, feugiat neque. In tincidunt sit amet lectus et molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut nisl efficitur, condimentum elit eu, eleifend tortor. Quisque at urna feugiat sem ornare pretium.</p>
+<p>https://twitter.com/chris_mccord/status/1772631568772710507
+see server logs in console too!</p>
 
   </main>
 </body>
