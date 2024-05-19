@@ -51,13 +51,9 @@ h6 {
     li {
         max-width: 640px;
         margin: auto;
-<<<<<<< HEAD
         margin-bottom: 0.6em;
         margin-top: 0.6em;
         color: #0F172A;
-=======
-        margin-bottom: 0.8em;
->>>>>>> 0d06023c44a71f4a66428aa2c8e32be7f59a48cc
     }
 
     h1,
@@ -93,7 +89,6 @@ h6 {
         margin-bottom: 0.8em;
     }
 
-<<<<<<< HEAD
     blockquote {
         max-width: 640px;
         quotes: "\201C" "\201D" "\2018" "\2019";
@@ -121,12 +116,13 @@ h6 {
 
     blockquote p {
         display: inline;
-        color: #0F172A
-=======
+
+        color: #0F172A;
+
+    }
+
     a {
         font-size: 1.0em;
-       
->>>>>>> 0d06023c44a71f4a66428aa2c8e32be7f59a48cc
     }
 }
 
@@ -138,15 +134,7 @@ h6 {
         font-family: "Zilla Slab", monospace;
         font-weight: 400;
         font-style: normal;
-        font-size: 1.2em;
-        line-height: 1.2em;
+        font-size: 1.6em;
+        line-height: 1.4em;
     }
 }
-
-<<<<<<< HEAD
-caption {
-    max-width: 768px;
-    font-size: 0.2em;
-}
-=======
->>>>>>> 0d06023c44a71f4a66428aa2c8e32be7f59a48cc
