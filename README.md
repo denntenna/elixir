@@ -5,7 +5,7 @@ npx @11ty/eleventy --serve
 ```
 rm -rf docs 
 npx @11ty/eleventy --output=docs
-git add -a
+git add -A
 git commit -m "COMMIT_MESSAGE"
 git push origin main
 ```
@@ -13,3 +13,8 @@ git push origin main
 
 ### Firacode Ligatures
 https://beautifulwebtype.com/fira-code/glyphs/?i=5
+
+
+### Future Ideas
+how do petal etc do components
+how are tailwind and esbuild integrated into phoenix projects
