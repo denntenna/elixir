@@ -1,0 +1,140 @@
+pre {
+    overflow-x: scroll;
+}
+
+code {
+    font-family: "Fira Code";
+}
+
+p {
+    font-family: "Zilla Slab", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    color: #0F172A;
+}
+
+a {
+    font-size: 0.8em;
+    font-weight: 600;
+    font-family: "Fira Code";
+    color: #A855F7
+}
+
+a:link,
+a:visited,
+a:focus,
+a:hover {
+    color: #0C4A6E;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+    font-family: "Zilla Slab", monospace;
+    font-weight: 700;
+    font-style: normal;
+
+}
+
+
+
+.blog-layout {
+
+    p,
+    ol,
+    li {
+        max-width: 640px;
+        margin: auto;
+        margin-bottom: 0.6em;
+        margin-top: 0.6em;
+        color: #0F172A;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Zilla Slab", monospace;
+        font-weight: 700;
+        max-width: 640px;
+        margin: auto;
+        margin-top: 1.2em;
+        margin-bottom: 0.8em;
+        color: #0F172A;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        line-height: 2.4rem;
+    }
+
+    h2 {
+        font-size: 2.0rem;
+        line-height: 2.2rem;
+    }
+
+    pre {
+
+        max-width: 768px;
+        margin: auto;
+        margin-top: 0.8em;
+        margin-bottom: 0.8em;
+    }
+
+    blockquote {
+        max-width: 640px;
+        quotes: "\201C" "\201D" "\2018" "\2019";
+        margin: auto;
+        margin-top: 0.4em;
+        margin-bottom: 0.4em;
+        color: #0F172A;
+    }
+
+    blockquote:before {
+        color: #94A3B8;
+        content: open-quote;
+        font-size: 2em;
+        line-height: 0.1em;
+        vertical-align: -0.2em;
+    }
+
+    blockquote:after {
+        color: #94A3B8;
+        content: close-quote;
+        font-size: 2em;
+        line-height: 0.1em;
+        vertical-align: -0.2em;
+    }
+
+    blockquote p {
+        display: inline;
+
+        color: #0F172A;
+
+    }
+
+    a {
+        font-size: 1.0em;
+    }
+}
+
+.index-layout {
+    max-width: 768px;
+    margin: auto;
+
+    a {
+        font-family: "Zilla Slab", monospace;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1.6em;
+        line-height: 1.4em;
+    }
+}
