@@ -75,3 +75,12 @@ So the syntax is to put a keyword list or map between curly braces.
 
 ## My takeaway
 I think while I might invest time in learning a library like alpine, I think for my small projects and one off components that need interactivity, I might be better of adding a custom javascript file in my assets. Then using custom attributes or classnames to identify elements, I should be able to inject interactive behaviour.
+
+A css file is bundled with the library - https://github.com/petalframework/petal_components/blob/main/assets/default.css
+from here I learnt how petal uses [tailwind directive @apply](https://tailwindcss.com/docs/functions-and-directives#apply) for using tailwind style in its custom components. for eg in the dropdown component a div has this class `class={[@class, "pc-dropdown"]}`, which can then be found in the default.css file.
+
+```css
+.pc-dropdown {
+  @apply relative inline-block text-left;
+}
+```
