@@ -2,12 +2,11 @@
 Learning to write idiomatic elixir by reading open source elixir codebases.
 
 ### Developing Locally
-npx @11ty/eleventy --serve
+npm run dev
 
 ### Deploy Changes
 ```
-rm -rf docs 
-npx @11ty/eleventy --output=docs
+npm run build
 git add -A
 git commit -m "COMMIT_MESSAGE"
 git push origin main
