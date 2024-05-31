@@ -4,7 +4,7 @@ layout: layout.html
 
 <div class="index-layout">
 
-    <div class="p-12 md:p-20 bg-slate-100 rounded-xl mt-4 mb-4">
+    <div class="p-4 md:p-20 bg-slate-100 rounded-xl mt-4 mb-4">
         <span class="text-xl md:text-4xl text-sky-700 leading-normal">Learning to write idiomatic elixir by reading
             elixir
             codebases.</span>
@@ -17,7 +17,8 @@ layout: layout.html
         <div class="index-layout px-4 py-8 flex flex-col gap-2   border-b pb-6 hover:bg-slate-100">
             <div class="flex flex-col md:flex-row align-start flex-wrap">
                 <div class="flex flex-col">
-                    <span>{{post.data.title}}</span>
+                    <span class="text-2xl mb-1">{{post.data.title}}</span>
+                    <span class="text-xl md:w-2/3 leading-6 mb-1">{{post.data.excerpt}}</span>
                     <span class="text-slate-500 text-sm font-sans">{{ post.data.date | postDate }}</span>
                 </div>
                 <span class="flex-grow"></span>
