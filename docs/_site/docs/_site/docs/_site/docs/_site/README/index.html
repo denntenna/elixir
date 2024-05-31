@@ -1,10 +1,9 @@
 <h1>About</h1>
 <p>Learning to write idiomatic elixir by reading open source elixir codebases.</p>
 <h3>Developing Locally</h3>
-<p>npx @11ty/eleventy --serve</p>
+<p>npm run dev</p>
 <h3>Deploy Changes</h3>
-<pre><code>rm -rf docs 
-npx @11ty/eleventy --output=docs
+<pre><code>npm run build
 git add -A
 git commit -m &quot;COMMIT_MESSAGE&quot;
 git push origin main
