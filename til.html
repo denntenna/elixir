@@ -1,0 +1,38 @@
+---
+layout: layout.html
+---
+
+<div class="index-layout">
+
+    <div class="p-4 md:p-20 bg-slate-100 rounded-xl mt-4 mb-4">
+        <span class="text-xl md:text-4xl text-sky-700 leading-normal">Tips and tricks collected from various code
+            bases</span>
+    </div>
+
+
+
+    {% for til in collections.til %}
+
+    <a href="/elixir/{{til.url}}">
+
+        <div class="index-layout px-4 py-8 flex flex-col gap-2   border-b pb-6 hover:bg-slate-100">
+            <div class="flex flex-col md:flex-row align-start flex-wrap">
+                <div class="flex flex-col">
+                    <span class="text-2xl mb-1">{{til.data.title}}</span>
+                    <span class="text-xl md:w-2/3 leading-6 mb-1">{{til.data.excerpt}}</span>
+                    <span class="text-slate-500 text-sm font-sans">{{ til.data.date | postDate }}</span>
+                </div>
+                <span class="flex-grow"></span>
+                <span>
+                    {% for tag in til.data.tags %}
+                    <span
+                        class="md:px-3 rounded-md md:bg-slate-200 text-xl rounded-md underline md:no-underline">{{tag}}</span>
+                    {% endfor %}
+                </span>
+
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+
+</div>
