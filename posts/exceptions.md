@@ -1,8 +1,12 @@
 ---
-title: Exceptions
+title: Exception Handling
+excerpt: Surveying user facing elixir projects in search for idioms on exception handling
 date: 2024-05-14
 tags: 
-    - cheatsheet
+    - elixir
+    - phoenix
+    - bandit
+    - pleroma
 ---
 
 # Exceptions
