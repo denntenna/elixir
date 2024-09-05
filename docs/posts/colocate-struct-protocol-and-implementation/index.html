@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title></title>
+  <title>Co-locate Struct, Protocol and Implementation</title>
   <meta name="description" content="description" />
   <meta name="author" content="denntenna" />
   <meta name="keywords" content="elixir" />
@@ -12,7 +12,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@dennymades">
   <meta name="twitter:creator" content="@">
-  <meta name="twitter:title" content="">
+  <meta name="twitter:title" content="Co-locate Struct, Protocol and Implementation">
   <meta name="twitter:description"
     content="NEWARK - The guest list and parade of limousines with celebrities emerging from them seemed more suited to a red carpet event in Hollywood or New York than than a gritty stretch of Sussex Avenue near the former site of the James M. Baxter Terrace public housing project here.">
   <meta name="twitter:image"
@@ -60,75 +60,12 @@
     </div>
   </header>
   <main class="max-w-screen-lg p-2 mx-auto blog-layout">
-    
-<div class="index-layout">
+    <h1>Co-locate Struct, Protocol and Implementation</h1>
+<p>For a <a href="https://github.com/tattle-made/viral-spiral">multiplayer card game</a> that I am working on, I had to define multiple types of cards. All these cards can be shared with other players, discarded from the game or kept to themselves by the player.</p>
+<p>At some point I figured that I would create a protocol called Playable that Modules can implement to be a Playable Card. I faced a decision paralysis about where should I put the following files - the Card structs, the protocol definition and the protocol implementation. I ended up keeping the various card structs in a folder and created a file called <a href="https://github.com/tattle-made/viral-spiral/blob/main/lib/viral_spiral/card_share.ex">card_share.ex</a> where I defined the protocol and implementation for various card structs.</p>
+<p>A week later while perusing the source code of elixir's <a href="">Enum module</a>, I discovered that this one large file defines Enum, Enumerable protocol and implementation for List and Map modules. In hindsight this approach does make sense, All code related to Enum is in one file and so are the  implementations for data structures that are native to elixir. Any third party that wants to implement the Enumerable protocol can do so in their own module.</p>
+<p>This made me feel confident about following this convention for my codebases going forward. Since I know the types of card I have in the initial phase of the project, I can define implementation of Playable protocol for all known card types.</p>
 
-    <div class="p-4 md:p-20 bg-slate-100 rounded-xl mt-4 mb-4">
-        <span class="text-xl md:text-4xl text-sky-700 leading-normal">Tips and tricks collected from various code
-            bases</span>
-    </div>
-
-
-
-    
-
-    <a href="/elixir//tils/testing-with-remote-servers/">
-
-        <div class="index-layout px-4 py-8 flex flex-col gap-2   border-b pb-6 hover:bg-slate-100">
-            <div class="flex flex-col md:flex-row align-start flex-wrap">
-                <div class="flex flex-col">
-                    <span class="text-2xl mb-1">Testing with remote servers</span>
-                    <span class="text-xl md:w-2/3 leading-6 mb-1"></span>
-                    <span class="text-slate-500 text-sm font-sans">1 Jun 2024</span>
-                </div>
-                <span class="flex-grow"></span>
-                <span>
-                    
-                    <span
-                        class="md:px-3 rounded-md md:bg-slate-200 text-xl rounded-md underline md:no-underline">til</span>
-                    
-                    <span
-                        class="md:px-3 rounded-md md:bg-slate-200 text-xl rounded-md underline md:no-underline">bonfire</span>
-                    
-                    <span
-                        class="md:px-3 rounded-md md:bg-slate-200 text-xl rounded-md underline md:no-underline">exunit</span>
-                    
-                </span>
-
-            </div>
-        </div>
-    </a>
-    
-
-    <a href="/elixir//posts/colocate-struct-protocol-and-implementation/">
-
-        <div class="index-layout px-4 py-8 flex flex-col gap-2   border-b pb-6 hover:bg-slate-100">
-            <div class="flex flex-col md:flex-row align-start flex-wrap">
-                <div class="flex flex-col">
-                    <span class="text-2xl mb-1">Co-locate Struct, Protocol and Implementation</span>
-                    <span class="text-xl md:w-2/3 leading-6 mb-1">Elixir's Enum module has the following in one file - Module definition, Enumerable behaviour and implementation for List and Map.</span>
-                    <span class="text-slate-500 text-sm font-sans">5 Sept 2024</span>
-                </div>
-                <span class="flex-grow"></span>
-                <span>
-                    
-                    <span
-                        class="md:px-3 rounded-md md:bg-slate-200 text-xl rounded-md underline md:no-underline">post</span>
-                    
-                    <span
-                        class="md:px-3 rounded-md md:bg-slate-200 text-xl rounded-md underline md:no-underline">elixir</span>
-                    
-                    <span
-                        class="md:px-3 rounded-md md:bg-slate-200 text-xl rounded-md underline md:no-underline">til</span>
-                    
-                </span>
-
-            </div>
-        </div>
-    </a>
-    
-
-</div>
     <script src="https://utteranc.es/client.js" repo="denntenna/elixir" issue-term="title" label="comment"
       theme="github-light" crossorigin="anonymous" async>
       </script>
