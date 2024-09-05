@@ -1,7 +1,7 @@
 ---
 title: Co-locate Struct, Protocol and Implementation
 excerpt: Elixir's Enum module has the following in one file - Module definition, Enumerable behaviour and implementation for List and Map.
-date: 2024-06-01
+date: 2024-09-05
 tags: 
     - elixir
     - til
